@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Agendamento</title>
+</head>
+<body>
+    
+
+ <!--navbar-->
+ <div class="barra"></div>
+    
+ <nav class="nav">
+
+     <h1 class="titulo"> <a class="titulo" href="index.html"> Espaço Queen</a></h1>
+       
+
+     <ul class="navbar__menu">
+         <li class="navbar__item">
+           <a href="#home" class="navbar__links" id="home-page">Home</a>
+         </li>
+         <li class="navbar__item">
+           <a href="#about" class="navbar__links" id="about-page">About</a>
+         </li>
+         
+       </ul>
+
+       <ul class="navbar__menu_2">
+         <li class="navbar__item_2">
+           <a href="#home" class="navbar__links_2" id="home-page">Home</a>
+         </li>
+         <li class="navbar__item_2">
+           <a href="#about" class="navbar__links_2" id="about-page">About</a>
+         </li>
+         
+       </ul>
+ </nav>
+ <!--fim da navbar-->
+
+
+<!--agendamento-->
+
+<div class="form">
+
+  <form action="#" method="get" onsubmit="abrirWhatsapp()">
+
+ <input type="text" class="input_text" placeholder="Nome" id="nome" required>
+
+ <input type="date" class="input_text" placeholder="Dia para agendar" id="date" required>
+
+</div>
+<!--fim agendamento-->
+
+
+
+
+
+<div class="finalis">
+
+  <img class="img-proce1" src="img/procedimento1.jpg" alt="">
+  <img class="img-proce1" src="img/procedimento1.jpg" alt="">
+  <img class="img-proce1" src="img/procedimento1.jpg" alt="">
+  <img class="img-proce1" src="img/procedimento1.jpg" alt="">
+<br>
+<br>
+
+<input class="conf" type="checkbox" name="check" id="pedicuri" value="pedicuri" ><label class="conf-text" for="">Pedicuri</label>
+
+<input class="conf1" type="checkbox" name="check" id="manicuri" value="manicuri" "><label class="conf-text" for="">Manicuri</label>
+
+<input class="conf2" type="checkbox" name="check" id="alongamento" value="alongamento" ><label class="conf-text" for="">Alongamento</label>
+
+<input class="conf3" type="checkbox" name="check" id="sobrancelha" value="sobrancelha" ><label class="conf-text" for="">Sobrancelha</label>
+
+</div>
+
+<button id="btnSelecionar">Selecionar</button>
+<div class="botoes">
+
+  <button class="btn-saiba-gen1"> <a class="btn-saiba-gen1-text" href="/procedimentos/procedimento1.html" target="_blank"> Saiba Mais </a> </button>
+  <button class="btn-saiba-gen1"> <a class="btn-saiba-gen1-text" href="/procedimentos/procedimento1.html" target="_blank"> Saiba Mais </a> </button>
+  <button class="btn-saiba-gen1"> <a class="btn-saiba-gen1-text" href="/procedimentos/procedimento1.html" target="_blank"> Saiba Mais </a> </button>
+  <button class="btn-saiba-gen1"> <a class="btn-saiba-gen1-text" href="/procedimentos/procedimento1.html" target="_blank"> Saiba Mais </a> </button>
+
+</div>
+<button id="btn-enviar" class="btn-fi" type="submit">Enviar</button>
+<ul id="selecaop">
+
+</ul>
+</form>
+<script>
+  
+        function abrirWhatsapp() {
+  var nome = document.getElementById('nome').value;
+  var date = document.getElementById('date').value;
+
+  var Procedimento = ["Pedicuri", "Manicuri", "Alongamento", "Sobrancelha"];
+			
+			document.addEventListener("DOMContentLoaded", function(){
+				document.getElementById("btnSelecionar").addEventListener("click", function(){ 
+				
+					var elementos = document.getElementsByClass("check"); 
+					
+					for(i = 0; i < elementos.length; i++){
+						if(elementos[i].checked){ 
+							document.getElementById("selecaop").innerHTML += "<li>"+Procedimento[i]+"</li>"; 
+							
+						}
+					}
+					
+					document.getElementById("btn-enviar").disabled = "disabled"; //Desativamos o botão.
+				});
+			});
+  var proce = document.getElementById("btn-enviar").innerText;
+  var mani = document.getElementById('manicuri').value;
+  var url = "https://wa.me/5511975258330?text=" // Seu numero
+    + "*Formulário de Contato*" + "%0a" // Mensagem personalizada
+    + "%0a" // Quebra de linha
+    + "*Nome*: " + nome + "%0a" // Dados do formulário
+    + "*E-mail*: " + date + "%0a"
+    +"*Procedimento*" + proce + "%0a"
+    + "*Mensagem*:" + mani ;
+  window.open(url, '_blank').focus();
+
+
+}
+  </script>
+
+</body>
+</html>
