@@ -328,7 +328,7 @@ body{
 
 .titulo2{
 
-    font-family: 'Cormorant SC' serif;
+    font-family: 'Cormorant SC';
     font-size: 43px;
     font-style: none;
     font-weight: normal;
@@ -336,6 +336,7 @@ body{
     padding-top: 1%;
     padding-left: 3%;
     color: var(--cor-secundaria-texto);
+    letter-spacing: 15px;
 }
 
 .cursos{
@@ -353,7 +354,7 @@ body{
     width: 200px;
     top: 319px;
     border-style: none;
-    right: 145px;
+    right: 430px;
     
 
 
